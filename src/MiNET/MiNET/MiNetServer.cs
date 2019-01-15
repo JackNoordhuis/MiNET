@@ -227,11 +227,11 @@ namespace MiNET
 		{
 			var listener = new UdpClient(Endpoint);
 
-			//_listener.Client.ReceiveBufferSize = 1600*40000;
-			listener.Client.ReceiveBufferSize = int.MaxValue;
-			//_listener.Client.SendBufferSize = 1600*40000;
-			listener.Client.SendBufferSize = int.MaxValue;
-			listener.DontFragment = false;
+			listener.Client.ReceiveBufferSize = 65535;
+//			listener.Client.ReceiveBufferSize = int.MaxValue;
+			listener.Client.SendBufferSize = 65535;
+//			listener.Client.SendBufferSize = int.MaxValue;
+//			listener.DontFragment = false;
 			listener.EnableBroadcast = false;
 
 			if (Environment.OSVersion.Platform != PlatformID.Unix && Environment.OSVersion.Platform != PlatformID.MacOSX)
